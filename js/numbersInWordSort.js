@@ -13,18 +13,17 @@
  "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
  ""  -->  ""
 */
-
 let order
 
 order = words => {
-  return words.match(/[0-9]/g).reduce((ret, m, i) => {
-    console.log(m, i, words[i])
-    ret[m - 1] = words[i]
+  return words
+    .split(' ')
+    .reduce((ret, w) => {
+      ret[w.match(/[0-9]/) - 1] = w
 
-    return ret
-  }, [])
+      return ret
+    }, [])
+    .join(' ')
 }
-
-'is2 Thi1s T4est 3a'.match(/[0-9]/g)
 
 order('is2 Thi1s T4est 3a')
