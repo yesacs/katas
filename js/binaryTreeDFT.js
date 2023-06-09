@@ -24,6 +24,9 @@ function TreeNode(val, left, right) {
 
 tree = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)))
 
+// In-Order traversal is ""left-root-right"-order", so we always add
+// the most left node which is left (and has no left children)
+
 // recursive solution
 inorderTraversal = root => {
   if (!root) return []
@@ -37,9 +40,28 @@ inorderTraversal = root => {
 
 // iterative solution
 inorderTraversal = root => {
-  // 1 add the root val
-  // 2 add the left side vals
-  // 3 add the right vals
+  let stack = [],
+    ret = [],
+    current = root
+
+  while (current || stack.length) {
+    if (current) {
+      // if current is valid, push it to the stack to look at later
+      stack.push(current)
+      // if current has a left node, set that as the new current to go deeper on
+      // the next iteration
+      current = current.left
+    } else {
+      //otherwise, let's look at the stack and save the value
+      current = stack.pop()
+      ret.push(current.val)
+
+      // set the new current to the right node regardless of validity
+      current = current.right
+    }
+  }
+
+  return ret
 }
 
 inorderTraversal(tree)
