@@ -39,7 +39,7 @@ sieve(10).length
 sieve(12121)
 
 // not mine
-countPrimes = function (n) {
+let countPrimes = function (n) {
   if (n < 3) return 0
 
   const count = new Uint8Array(n)

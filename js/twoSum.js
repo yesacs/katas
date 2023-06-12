@@ -18,7 +18,6 @@ twoSum = (nums, target) => {
 }
 
 // hash table version
-//
 
 twoSum = (nums, target) => {
   let hashTable = {}

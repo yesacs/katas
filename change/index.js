@@ -21,11 +21,11 @@ Sample Output
 
 let makeChange
 
-makeChange = (target, coins) => {
-  return coins.map(c => {
-    return Math.floor(target / c)
-  })
-}
+makeChange = (target, coins) => {}
+
+6 / 1
+
+Math.floor(6 / 5)
 
 // TESTS --------------
 
